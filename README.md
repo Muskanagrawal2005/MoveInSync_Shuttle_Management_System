@@ -9,11 +9,9 @@ commuting experience.
 
 ## 📌 Table of Contents
 - [Features & PDF Requirements Alignment](#-features--pdf-requirements-alignment)
-- [System Architecture & State Flow](#-system-architecture--state-flow)
-- [Key Engineering Highlights](#-key-engineering-highlights)
 - [Project Directory Structure](#-project-directory-structure)
-- [Getting Started](#-getting-started)
-- [Interview & Architectural Defense FAQ](#-interview--architectural-defense-faq)
+- [Getting Started](#installation)
+- [Screenshots](#screenshots)
 
 ---
 
@@ -65,14 +63,18 @@ src/
 ```
 
 ## Installation
-### Clone the repository
+#### Clone the repository
 `git clone https://github.com/Muskanagrawal2005/MoveInSync_Shuttle_Management_System.git`
 
-### Navigate into project directory
+#### Navigate into project directory
 `cd MoveInSync_Shuttle_Management_System`
 
-### Install dependencies
+#### Install dependencies
 `npm install`
 
-### Start local development server
+#### Start local development server
 `npm run dev`
+
+### Screenshots
+<img width="1896" height="867" alt="image" src="https://github.com/user-attachments/assets/97016a64-b96c-45f7-b734-fd9e64c5937c" />
+
