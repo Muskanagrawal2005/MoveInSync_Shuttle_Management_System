@@ -1,16 +1,78 @@
-# React + Vite
+# 🚐 Shuttle Management System: A Smart Campus Transit Solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Shuttle Management System is designed to provide efficient, cost-effective, and
+seamless transportation for students within a university campus. The system streamlines
+shuttle bookings, trip tracking, and driver availability management, ensuring a hassle-free
+commuting experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Table of Contents
+- [Features & PDF Requirements Alignment](#-features--pdf-requirements-alignment)
+- [System Architecture & State Flow](#-system-architecture--state-flow)
+- [Key Engineering Highlights](#-key-engineering-highlights)
+- [Project Directory Structure](#-project-directory-structure)
+- [Getting Started](#-getting-started)
+- [Interview & Architectural Defense FAQ](#-interview--architectural-defense-faq)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features & PDF Requirements Alignment
 
-## Expanding the ESLint configuration
+### 1. Shuttle Booking Management
+* **Booking CRUD Operations**: Real-time table view with full editing capabilities (pickup/drop locations, scheduled time, vehicle, and assigned driver).
+* **Passenger Simulation**: Create new shuttle reservations (`+ New Shuttle Booking`) attributed to Students or Staff members.
+* **Trip History Tracking**: Inspect historical rides (`Completed`, `Cancelled`, `No Show`) via a comprehensive journey drawer featuring time-stamped milestone audit trails.
+* **Pagination & Sorting**: Client-side sorting and page slicing for consistent operational scanning.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Driver Availability Management (Gantt Timeline)
+* **Visual Timeline Engine**: Custom mathematical projection mapping 24-hour time strings (`HH:mm`) to responsive percentages along a 06:00–22:00 operational axis.
+* **Hourly Duty Controls**: Contextual driver shift management (`Start Duty`, `End Duty`) with visual duty boundary underlays.
+* **Break Scheduling & Collision Detection**: Add break windows with zero-dependency interval collision detection preventing overlapping breaks or conflicting assignments.
+* **Design-Fidelity Legend**: Matches the wireframe specifications (`Duty Start`, `Duty End`, `Pickup/Drop`, `Break`, `Vehicle Change`, `Empty Leg`).
+
+### 3. Admin & Dispatch Controls
+* **Driver Assignment**: Easily allocate available drivers to active passenger routes.
+* **Debounced Search**: Dual search surfaces across bookings and drivers throttled via a decoupled custom hook.
+* **Performance Overview**: Header navigation tab matching dispatcher wireframe layouts.
+
+---
+
+## 📂 Project Directory Structure
+
+```text
+src/
+├── assets/                  # Static brand assets and SVGs
+├── components/
+│   ├── bookings/            # Booking management domain
+│   │   ├── BookingDrawer.jsx        # Slide-over journey retrospective
+│   │   ├── BookingsTable.jsx        # Dispatch data grid with status filters
+│   │   └── EditBookingModal.jsx     # Route, vehicle & driver assignment modal
+│   ├── layout/              # App Shell (Navbar, Header, Performance tab)
+│   │   └── Navbar.jsx
+│   └── timeline/            # Driver availability & Gantt chart
+│       ├── AddBreakModal.jsx        # Break creation with collision validation
+│       └── DriverTimeline.jsx       # Hourly Gantt ruler and driver rows
+├── context/
+│   └── TransitContext.jsx   # Global state store for bookings and fleet drivers
+├── hooks/
+│   └── useDebounce.js       # Reusable 300ms input throttling hook
+├── utils/
+│   ├── mockData.js          # Realistic campus transit seed dataset
+│   └── timeMath.js          # Timeline coordinate transformation & collision math
+├── App.jsx                  # Main Dispatcher layout assembly
+└── main.jsx                 # React root entry point
+```
+
+## Installation
+### Clone the repository
+`git clone https://github.com/Muskanagrawal2005/MoveInSync_Shuttle_Management_System.git`
+
+### Navigate into project directory
+`cd MoveInSync_Shuttle_Management_System`
+
+### Install dependencies
+`npm install`
+
+### Start local development server
+`npm run dev`
